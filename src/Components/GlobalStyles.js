@@ -1,4 +1,4 @@
-import { Reset } from "styled-reset";
+import Reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
@@ -7,8 +7,7 @@ const GlobalStyles = createGlobalStyle`
         text-decoration:none;
         color:inherit;
     }
-    ul {
-        list-style-type:none;
+
     }
     *{
         box-sizing: border-box;

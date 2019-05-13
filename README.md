@@ -9,9 +9,18 @@
 - [ ] Search
 - [ ] Detail
 
-##React router
-Switch -> 한 번에 하나의 route만 Render
+## React router
+
 exact -> 정확하게 그 route 일때에만
+Redirect
+
+### Switch
+
+-> 한 번에 하나의 route만 Render
+
+### withRouter
+
+->You can get access to the history object's properties and the closest <Route>'s match via the withRouter higher-order component. withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
 
 ## styled components
 
@@ -20,7 +29,10 @@ exact -> 정확하게 그 route 일때에만
    yarn add styled-reset
 ```
 
-styled css 안에 Component 를 넣으려면 \${}
+### \${}
+
+- styled css 안에 Component 를 넣기 위해.
+- styled css 안에 javascript를 적기 위해.
 
 css를 각 component 마다 지정하는 개념이라서
 local하게 css를 적용시킬 수 있다.
@@ -37,6 +49,7 @@ arrow function
 =>
 template literal
 `${}`
+
 object destructing
 
 ```js
