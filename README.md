@@ -1,4 +1,9 @@
-## react - study
+## react - For review
+
+## npx
+
+module을 설치하지 않고도
+실행할 수 있는 방법
 
 ## Fundamental javascript
 
@@ -54,7 +59,27 @@ myBaby.cry();
 Array.map(function)
 function 에 있는 함수를 실행시키며 새로운 array를 반환한다.
 
+Array.filter()
+-> The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+Array.forEach()
+array를 return하는 것이 아니라,
+각 요소에 대해서 무엇인가를 수행하는 것.
+
+push / includes / reverse
+push -> new element를 array 마지막 인덱스 다음에 새로 추가
+
+include는 array안에 어떤 element가 있는지를 확인해주는 것.
+
+reverse -> array 순서 반대로
+
+---
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Array.filter
 
 ## Available Scripts
 
