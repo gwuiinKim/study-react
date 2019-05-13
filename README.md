@@ -15,8 +15,21 @@ exact -> 정확하게 그 route 일때에만
 
 ## styled components
 
-css를 각 component 마다 지정하는 개념.
+```js
+   yarn add styled-components
+   yarn add styled-reset
+```
+
+styled css 안에 Component 를 넣으려면 \${}
+
+css를 각 component 마다 지정하는 개념이라서
+local하게 css를 적용시킬 수 있다.
 component에 css 를 주려면 styled(component)이런식으로 하면 됨.
+
+flex.. 자기 자신을 정렬할 때에도 사용할 수 있는 것 같다.
+자신을 그 element내에서 중앙정렬할 때,
+display:flex;
+align-items:center;
 
 ## Fundamental javascript
 
