@@ -2,8 +2,6 @@
 
 ## To Do List..
 
-React router
-
 ### Screen
 
 - [ ] Home
@@ -11,16 +9,9 @@ React router
 - [ ] Search
 - [ ] Detail
 
-## npx
-
-module을 설치하지 않고도
-실행할 수 있는 방법
-
-## .env
-
-NODE_PATH = src
--->이렇게 함으로써 파일을 다른 폴더에도 옮겨도 작동함
--->안해도 작동되는 것 같음..
+##React router
+Switch -> 한 번에 하나의 route만 Render
+exact -> 정확하게 그 route 일때에만
 
 ## Fundamental javascript
 
@@ -89,6 +80,17 @@ push -> new element를 array 마지막 인덱스 다음에 새로 추가
 include는 array안에 어떤 element가 있는지를 확인해주는 것.
 
 reverse -> array 순서 반대로
+
+## npx
+
+module을 설치하지 않고도
+실행할 수 있는 방법
+
+## .env
+
+NODE_PATH = src
+-->이렇게 함으로써 파일을 다른 폴더에도 옮겨도 작동함
+-->안해도 작동되는 것 같음..
 
 ---
 
