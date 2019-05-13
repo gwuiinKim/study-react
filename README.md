@@ -1,3 +1,59 @@
+## react - study
+
+## Fundamental javascript
+
+arrow function
+=>
+template literal
+`${}`
+object destructing
+
+```js
+const { body } = req;
+const { movie } = this.state;
+const {
+  name,
+  lastName,
+  favFood: { dinner }
+} = human;
+```
+
+spread operator
+...
+내용물을 unpack해주는 개념.
+array나 object들을 합칠 수 있게 된다.
+
+class
+
+```js
+class Human {
+  constructor(name, lastName) {
+    this.name = name;
+    this.lastName = lastName;
+  }
+}
+const person = new Human("sunkist", "lemonade");
+
+
+class Baby extends Human {
+    cry() {
+        console.log("waa")
+    }
+    sayName() {
+        console.log(`My name is ${this.name}`)
+    }
+}
+
+const myBaby = new Baby("mini", "me")
+myBaby.cry();
+
+--> Human으로부터 inherit하고
+    Baby만의 것을 추가하기도 함.
+```
+
+Array.map(function)
+function 에 있는 함수를 실행시키며 새로운 array를 반환한다.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
