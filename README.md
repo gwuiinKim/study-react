@@ -13,6 +13,11 @@
 Switch -> 한 번에 하나의 route만 Render
 exact -> 정확하게 그 route 일때에만
 
+## styled components
+
+css를 각 component 마다 지정하는 개념.
+component에 css 를 주려면 styled(component)이런식으로 하면 됨.
+
 ## Fundamental javascript
 
 arrow function
