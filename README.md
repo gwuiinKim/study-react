@@ -1,9 +1,26 @@
 ## react - For review
 
+## To Do List..
+
+React router
+
+### Screen
+
+- [ ] Home
+- [ ] TV shows
+- [ ] Search
+- [ ] Detail
+
 ## npx
 
 module을 설치하지 않고도
 실행할 수 있는 방법
+
+## .env
+
+NODE_PATH = src
+-->이렇게 함으로써 파일을 다른 폴더에도 옮겨도 작동함
+-->안해도 작동되는 것 같음..
 
 ## Fundamental javascript
 
