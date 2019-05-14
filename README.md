@@ -33,6 +33,11 @@ Redirect
 
 ->You can get access to the history object's properties and the closest <Route>'s match via the withRouter higher-order component. withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
 
+## container / presenter
+
+container 에는 state가 있고,
+presenter는 functional component로서 그냥 Return만 하는 녀석.
+
 ## styled components
 
 ```js
@@ -54,7 +59,7 @@ flex.. 자기 자신을 정렬할 때에도 사용할 수 있는 것 같다.
 display:flex;
 align-items:center;
 
-### axios
+## axios
 
 axios instance 를 configure 할 수 있다.
 fetch보다 훨씬 깔끔한 방식으로 할 수 있다.
