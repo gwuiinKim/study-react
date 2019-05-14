@@ -9,6 +9,14 @@
 - [ ] Search
 - [ ] Detail
 
+### API
+
+- [ ] Now playing ( Movie )
+- [ ] Top Rated ( TV, Movie)
+- [ ] Popular ( TV, Movie )
+- [ ] Upcoming ( Movie )
+- [ ] Airing Today ( TV )
+
 ## React router
 
 exact -> 정확하게 그 route 일때에만
@@ -42,6 +50,16 @@ flex.. 자기 자신을 정렬할 때에도 사용할 수 있는 것 같다.
 자신을 그 element내에서 중앙정렬할 때,
 display:flex;
 align-items:center;
+
+### axios
+
+axios instance 를 configure 할 수 있다.
+fetch보다 훨씬 깔끔한 방식으로 할 수 있다.
+
+Create a base instance
+Axios offer the possibility to create a base instance, that is useful to share a common base URL and configuration in an instance. In our example, we won't need to repeat the URL. In another case, you can use a base instance to pass a token.
+
+/없이 해야 relative
 
 ## Fundamental javascript
 
