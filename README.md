@@ -11,11 +11,14 @@
 
 ### API
 
-- [ ] Now playing ( Movie )
-- [ ] Top Rated ( TV, Movie)
-- [ ] Popular ( TV, Movie )
-- [ ] Upcoming ( Movie )
-- [ ] Airing Today ( TV )
+- [x] Now playing ( Movie )
+- [x] Top Rated ( TV, Movie)
+- [x] Popular ( TV, Movie )
+- [x] Upcoming ( Movie )
+- [x] Airing Today ( TV )
+- [x] TV Show Detail
+- [x] Movie Detail
+- [x] Search (Movie, TV)
 
 ## React router
 
