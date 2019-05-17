@@ -20,6 +20,76 @@
 - [x] Movie Detail
 - [x] Search (Movie, TV)
 
+### section 형식
+
+```js
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const Container = styled.div`
+  :not(:last-child) {
+    margin-bottom: 50px;
+  }
+`;
+
+const Title = styled.span`
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+const Grid = styled.div`
+  margin-top: 25px;
+`;
+
+const Section = ({ title, children }) => (
+  <Container>
+    <Title>{title}</Title>
+    <Grid>{children}</Grid>
+  </Container>
+);
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
+};
+
+export default Section;
+```
+
+## container / presenter
+
+container 에는 state가 있고,
+presenter는 functional component로서 그냥 Return만 하는 녀석.
+
+presenter 에서는 return할 요소가 존재하는지 아닌지를 확인해주는 것이 중요.
+
+```js
+const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
+  loading ? null : (
+    <Container>
+      {nowPlaying && nowPlaying.length > 0 ? (
+        <Section title="Now Playing">
+          {nowPlaying.map(movie => movie.title)}
+        </Section>
+      ) : null}
+      {upcoming && upcoming.length > 0 ? (
+        <Section title="Upcoming Movies">
+          {upcoming.map(movie => movie.title)}
+        </Section>
+      ) : null}
+      {popular && popular.length > 0 ? (
+        <Section title="Popular Movies">
+          {popular.map(movie => movie.title)}
+        </Section>
+      ) : null}
+    </Container>
+  );
+```
+
 ### Default state with props
 
 props 를 사용하여 default state를 설정할 수 있다.
@@ -51,11 +121,6 @@ Redirect
   You can get access to the history object's properties and the closest <Route>'s match via the withRouter higher-order component. withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
 - route 컴포넌트는 route에 대한 정보를 props로 전달받는다.(withRouter가 없어도.)
 - props안에 있는 history를 통해서 redirect등의 여러 기능을 수행할 수 있다.
-
-## container / presenter
-
-container 에는 state가 있고,
-presenter는 functional component로서 그냥 Return만 하는 녀석.
 
 ## styled components
 
