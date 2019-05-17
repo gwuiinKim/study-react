@@ -28,6 +28,8 @@ Redirect
 - Switch : 한 번에 하나의 route만 Render.
 - withRouter : Component 내부의 Route 정보에 접근할 수 있다.
   You can get access to the history object's properties and the closest <Route>'s match via the withRouter higher-order component. withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
+- route 컴포넌트는 route에 대한 정보를 props로 전달받는다.(withRouter가 없어도.)
+- props안에 있는 history를 통해서 redirect등의 여러 기능을 수행할 수 있다.
 
 ## container / presenter
 
