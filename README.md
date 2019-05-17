@@ -20,6 +20,27 @@
 - [x] Movie Detail
 - [x] Search (Movie, TV)
 
+### Default state with props
+
+props 를 사용하여 default state를 설정할 수 있다.
+
+```js
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    const {
+      location: { pathname }
+    } = props;
+    this.state = {
+      result: null,
+      error: null,
+      loading: true,
+      isMovie: pathname.includes("/movie/")
+    };
+  }
+}
+```
+
 ## React router
 
 exact -> 정확하게 그 route 일때에만
@@ -157,9 +178,10 @@ Baby만의 것을 추가하기도 함.
 - push / includes / reverse
   -- push -> new element를 array 마지막 인덱스 다음에 새로 추가
 
-include는 array안에 어떤 element가 있는지를 확인해주는 것.
+  -- include는 array안에 어떤 element가 있는지를 확인해주는 것.
+  혹은 string에서도 가능
 
-reverse -> array 순서 반대로
+  -- reverse -> array 순서 반대로
 
 ## npx
 
