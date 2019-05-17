@@ -135,6 +135,21 @@ const {
 } = human;
 ```
 
+let과도 함께 사용할 수 있다.
+
+```js
+  let result = null;
+  try {
+    if (isMovie) {
+      ({ data: result } = await moviesApi.movieDetail(parsedId));
+      // const request = await moviesApi.movieDetail(parsedId);
+      // result = request.data;
+    } else {
+      ({ data: result } = await tvApi.tvDetail(parsedId));
+    }
+
+```
+
 - spread operator: ... -> 내용물을 unpack해주는 개념.
   array나 object들을 합칠 수 있게 된다.
 

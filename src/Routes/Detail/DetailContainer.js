@@ -30,11 +30,12 @@ export default class extends Component {
     let result = null;
     try {
       if (isMovie) {
-        const request = await moviesApi.movieDetail(parsedId);
-        result = request.data;
+        ({ data: result } = await moviesApi.movieDetail(parsedId));
+        // const request = await moviesApi.movieDetail(parsedId);
+        // result = request.data;
       } else {
-        const request = await tvApi.tvDetail(parsedId);
-        result = request.data;
+        ({ data: result } = await tvApi.tvDetail(parsedId));
+        // result = request.data;
       }
     } catch {
       this.setState({
