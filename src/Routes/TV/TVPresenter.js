@@ -5,7 +5,7 @@ import Loader from "../../Components/Loader";
 import Section from "../../Components/Section";
 
 const Container = styled.div`
-  padding: 0px 10px;
+  padding: 0px 20px;
 `;
 
 const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
@@ -15,21 +15,27 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
     <Container>
       {topRated && topRated.length > 0 ? (
         <Section title="Top Rated Shows">
-          {topRated.map(show => show.name)}
+          {topRated.map(show => (
+            <span key={show.id}>{show.name}</span>
+          ))}
         </Section>
       ) : (
         <Loader />
       )}
       {popular && popular.length > 0 ? (
         <Section title="Popular Shows">
-          {popular.map(show => show.name)}
+          {popular.map(show => (
+            <span key={show.id}>{show.name}</span>
+          ))}
         </Section>
       ) : (
         <Loader />
       )}
       {airingToday && airingToday.length > 0 ? (
         <Section title="Airing Today Shows">
-          {airingToday.map(show => show.name)}
+          {airingToday.map(show => (
+            <span key={show.id}>{show.name}</span>
+          ))}
         </Section>
       ) : (
         <Loader />

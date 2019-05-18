@@ -11,6 +11,16 @@ export default class extends Component {
     error: null
   };
 
+  updateTerm = event => {
+    const {
+      target: { value }
+    } = event;
+    console.log(value);
+    this.setState({
+      searchTerm: value
+    });
+  };
+
   searchByTerm = async () => {
     const { searchTerm } = this.state;
     this.setState({
@@ -21,7 +31,7 @@ export default class extends Component {
         data: { results: movieResults }
       } = await moviesApi.search(searchTerm);
       const {
-        data: { result: tvResults }
+        data: { results: tvResults }
       } = await tvApi.search(searchTerm);
       this.setState({
         movieResults,
@@ -38,7 +48,8 @@ export default class extends Component {
     }
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm();
@@ -55,6 +66,7 @@ export default class extends Component {
         loading={loading}
         error={error}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
