@@ -36,7 +36,6 @@ export default class extends Component {
       } else {
         ({ data: result } = await tvApi.tvDetail(parsedId));
         // result = request.data;
-        console.log(result);
       }
     } catch {
       this.setState({
