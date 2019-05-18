@@ -127,6 +127,38 @@ Redirect
 ```js
    yarn add styled-components
    yarn add styled-reset
+
+
+
+const Image = styled.div`
+  background-image: url(${props => props.bgUrl});
+  height: 180px;
+  background-size: cover;
+  border-radius: 4px;
+  background-position: center center;
+  transition: opacity 0.1s linear;
+`;
+
+const Rating = styled.span`
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  margin-bottom: 5px;
+  &:hover {
+    ${Image} {
+      opacity: 0.3;
+    }
+    ${Rating} {
+      opacity: 1;
+    }
+  }
+`;
 ```
 
 ### \${}
