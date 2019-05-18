@@ -32,6 +32,7 @@ export default class extends Component {
       this.setState({
         error: "can't find movie information"
       });
+      console.log(this.state.error);
     } finally {
       this.setState({
         loading: false
