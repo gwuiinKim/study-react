@@ -2,11 +2,21 @@
 
 ## To Do List..
 
+### Detail Page
+
+- [ ] Video ( youtube video)
+- [x] IMDb (internet mobie database button. link)
+- [ ] Production_components (logo, name)
+- [ ] Spoken languages
+- [ ] Collection ( make route of collection)
+
+- [ ] On TV Show -> season
+
 ### Screen
 
-- [ ] Home
-- [ ] TV shows
-- [ ] Search
+- [x] Home
+- [x] TV shows
+- [x] Search
 - [ ] Detail
 
 ### API

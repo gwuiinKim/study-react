@@ -53,9 +53,22 @@ const Title = styled.h3`
 
 const ItemContainer = styled.div`
   margin: 20px 0;
+  display: flex;
+  align-items: center;
 `;
 
 const Item = styled.span``;
+
+const Button = styled.button`
+  all: unset;
+  background-color: #e8b708;
+  color: black;
+  font-weight: 600;
+  width: 30px;
+  height: 12px;
+  padding: 3px 5px;
+  border-radius: 2px;
+`;
 
 const Divider = styled.span`
   margin: 0 10px;
@@ -66,6 +79,16 @@ const Overview = styled.p`
   opacity: 0.7;
   line-height: 1.5;
   width: 50%;
+`;
+
+const VideoContainer = styled.div`
+  width: 100%;
+  height: 200px;
+`;
+
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -120,8 +143,28 @@ const DetailPresenter = ({ result, loading, error }) =>
                     : `${genre.name} / `
                 )}
             </Item>
+            <Divider>•</Divider>
+            <Item>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://www.imdb.com/title/${result.imdb_id}`}
+              >
+                <Button> IMDb</Button>
+              </a>
+            </Item>
           </ItemContainer>
           <Overview>{result.overview}</Overview>
+          <VideoContainer>
+            {result.videos.results &&
+              result.videos.results.length > 0 &&
+              result.videos.results.map((video, index) => (
+                <Video
+                  key={video.id}
+                  src={`https://www.youtube.com/watch?v=${video.key}`}
+                />
+              ))}
+          </VideoContainer>
         </Data>
       </Content>
     </Container>
