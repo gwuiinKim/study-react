@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
+// import Section from "Components/Section";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -21,7 +22,7 @@ const Backdrop = styled.div`
   background-position: center center;
   background-size: cover;
   filter: blur(3px);
-  opacity: 0.5;
+  opacity: 0.2;
   z-index: 0;
 `;
 
@@ -84,12 +85,23 @@ const Overview = styled.p`
 const VideoContainer = styled.div`
   width: 100%;
   height: 200px;
+  margin-top: 15px;
+  font-size: 15px;
+  color: #e67e22;
 `;
 
-const Video = styled.video`
+const VideoUrl = styled.span`
   width: 100%;
-  height: 100%;
+  display: block;
+  margin-bottom: 10px;
 `;
+
+const CompaniesContainer = styled.div`
+  width: 100%;
+  height: 200px;
+`;
+const CompanyLogo = styled.img``;
+const CompanyName = styled.span``;
 
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
@@ -158,14 +170,27 @@ const DetailPresenter = ({ result, loading, error }) =>
           <VideoContainer>
             {result.videos.results &&
               result.videos.results.length > 0 &&
-              result.videos.results.map((video, index) => (
-                <Video
-                  key={video.id}
-                  src={`https://www.youtube.com/watch?v=${video.key}`}
-                />
-              ))}
+              result.videos.results.map(
+                (video, index) =>
+                  index < 2 && (
+                    // <Section title="Video Trailer">
+                    //   {`https://www.youtube.com/watch?v=${video.key}` }
+                    // </Section>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={`https://www.youtube.com/watch?v=${video.key}`}
+                    >
+                      <VideoUrl key={video.id}>{video.name}</VideoUrl>
+                    </a>
+                  )
+              )}
           </VideoContainer>
         </Data>
+        <CompaniesContainer>
+          <CompanyLogo />
+          <CompanyName />
+        </CompaniesContainer>
       </Content>
     </Container>
   );
