@@ -7,7 +7,7 @@
 - [ ] Video ( youtube video) -- cors problem
 - [x] IMDb (internet mobie database button. link)
 - [x] Production_components (logo, name)
-- [ ] Spoken languages
+- [x] Spoken languages
 - [ ] Collection ( make route of collection)
 
 - [ ] On TV Show -> season

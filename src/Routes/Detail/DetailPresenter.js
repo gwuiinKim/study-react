@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
-import Company from "../../Components/Company";
+import Company from "../../Components/Detail/Company";
 // import Section from "Components/Section";
 
 const Container = styled.div`
@@ -59,6 +59,7 @@ const Title = styled.h3`
 const ItemContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 const Item = styled.span``;
@@ -79,7 +80,7 @@ const Divider = styled.span`
 `;
 
 const Overview = styled.p`
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 12px;
   opacity: 0.7;
   line-height: 1.5;
@@ -106,8 +107,7 @@ const CompanyContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 80px);
   grid-gap: 40px;
-  position: absolute;
-  bottom: 60px;
+  margin-top: 10px;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -163,9 +163,6 @@ const DetailPresenter = ({ result, loading, error }) =>
                 )}
             </Item>
             <Divider>•</Divider>
-            <Item> En </Item>
-            {/* Item to be added */}
-            <Divider>•</Divider>
             <Item>
               <a
                 target="_blank"
@@ -176,6 +173,15 @@ const DetailPresenter = ({ result, loading, error }) =>
               </a>
             </Item>
           </ItemContainer>
+          {result.spoken_languages &&
+            result.spoken_languages.length > 0 &&
+            result.spoken_languages.map((language, index) =>
+              index !== 0 ? (
+                <Item>/ {language.name} </Item>
+              ) : (
+                <Item>{language.name} </Item>
+              )
+            )}
 
           <Overview>{result.overview}</Overview>
           <VideoContainer>
