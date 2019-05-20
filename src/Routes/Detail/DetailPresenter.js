@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
+import Company from "../../Components/Company";
 // import Section from "Components/Section";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
   width: 100%;
-  position: relative;
   padding: 50px;
 `;
 
@@ -30,6 +30,7 @@ const Content = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+
   z-index: 1;
   height: 100%;
 `;
@@ -41,19 +42,21 @@ const Cover = styled.div`
   background-size: cover;
   height: 100%;
   border-radius: 5px;
+  margin-right: 20px;
 `;
 
 const Data = styled.div`
+  margin-left: 20px;
   width: 70%;
   margin-left: 10px;
 `;
 
 const Title = styled.h3`
   font-size: 32px;
+  margin-bottom: 20px;
 `;
 
 const ItemContainer = styled.div`
-  margin: 20px 0;
   display: flex;
   align-items: center;
 `;
@@ -76,6 +79,7 @@ const Divider = styled.span`
 `;
 
 const Overview = styled.p`
+  margin-top: 20px;
   font-size: 12px;
   opacity: 0.7;
   line-height: 1.5;
@@ -84,7 +88,7 @@ const Overview = styled.p`
 
 const VideoContainer = styled.div`
   width: 100%;
-  height: 200px;
+  height: 50px;
   margin-top: 15px;
   font-size: 15px;
   color: #e67e22;
@@ -93,15 +97,18 @@ const VideoContainer = styled.div`
 const VideoUrl = styled.span`
   width: 100%;
   display: block;
-  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
-const CompaniesContainer = styled.div`
+const CompanyContainer = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  grid-gap: 40px;
+  position: absolute;
+  bottom: 60px;
 `;
-const CompanyLogo = styled.img``;
-const CompanyName = styled.span``;
 
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
@@ -156,6 +163,9 @@ const DetailPresenter = ({ result, loading, error }) =>
                 )}
             </Item>
             <Divider>•</Divider>
+            <Item> En </Item>
+            {/* Item to be added */}
+            <Divider>•</Divider>
             <Item>
               <a
                 target="_blank"
@@ -166,6 +176,7 @@ const DetailPresenter = ({ result, loading, error }) =>
               </a>
             </Item>
           </ItemContainer>
+
           <Overview>{result.overview}</Overview>
           <VideoContainer>
             {result.videos.results &&
@@ -186,11 +197,14 @@ const DetailPresenter = ({ result, loading, error }) =>
                   )
               )}
           </VideoContainer>
+          <CompanyContainer>
+            {result.production_companies &&
+              result.production_companies.length > 0 &&
+              result.production_companies.map(company => (
+                <Company logo={company.logo_path} name={company.name} />
+              ))}
+          </CompanyContainer>
         </Data>
-        <CompaniesContainer>
-          <CompanyLogo />
-          <CompanyName />
-        </CompaniesContainer>
       </Content>
     </Container>
   );

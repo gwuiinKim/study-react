@@ -6,7 +6,7 @@
 
 - [ ] Video ( youtube video) -- cors problem
 - [x] IMDb (internet mobie database button. link)
-- [ ] Production_components (logo, name)
+- [x] Production_components (logo, name)
 - [ ] Spoken languages
 - [ ] Collection ( make route of collection)
 
