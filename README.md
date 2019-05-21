@@ -4,7 +4,7 @@
 
 ### Detail Page
 
-- [ ] Video ( youtube video) -- cors problem
+- [x] Video ( youtube video) -- cors problem
 - [x] IMDb (internet mobie database button. link)
 - [x] Production_components (logo, name)
 - [x] Spoken languages

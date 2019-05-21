@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 import Company from "../../Components/Detail/Company";
-// import Section from "Components/Section";
+import ItemList from "../../Components/Detail/ItemList";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -62,22 +63,19 @@ const ItemContainer = styled.div`
   margin-bottom: 10px;
 `;
 
-const Item = styled.span``;
-
-const Button = styled.button`
-  all: unset;
-  background-color: #e8b708;
-  color: black;
+const Language = styled.span`
+  margin-right: 5px;
+  background-color: #3498db;
+  padding: 3px;
+  border-radius: 4px;
+  text-align: center;
   font-weight: 600;
-  width: 30px;
-  height: 12px;
-  padding: 3px 5px;
-  border-radius: 2px;
+  color: white;
 `;
 
-const Divider = styled.span`
-  margin: 0 10px;
-`;
+// const Divider = styled.span`
+//   margin: 0 10px;
+// `;
 
 const Overview = styled.p`
   margin-top: 10px;
@@ -108,6 +106,16 @@ const CompanyContainer = styled.div`
   grid-template-columns: repeat(auto-fill, 80px);
   grid-gap: 40px;
   margin-top: 10px;
+`;
+
+const CollectionContainer = styled.div`
+  width: 100%;
+  height: 120px;
+`;
+
+const Collection = styled.div``;
+const CollectionPoster = styled.img`
+  width: 100px;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -144,44 +152,13 @@ const DetailPresenter = ({ result, loading, error }) =>
               : result.original_name}
           </Title>
           <ItemContainer>
-            <Item>
-              {result.release_date
-                ? result.release_date.substring(0, 4)
-                : result.first_air_date.substring(0, 4)}
-            </Item>
-            <Divider>•</Divider>
-            <Item>
-              {result.runtime ? result.runtime : result.episode_run_time[0]} min
-            </Item>
-            <Divider>•</Divider>
-            <Item>
-              {result.genres &&
-                result.genres.map((genre, index) =>
-                  index === result.genres.length - 1
-                    ? genre.name
-                    : `${genre.name} / `
-                )}
-            </Item>
-            <Divider>•</Divider>
-            <Item>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://www.imdb.com/title/${result.imdb_id}`}
-              >
-                <Button> IMDb</Button>
-              </a>
-            </Item>
+            <ItemList result={result} />
           </ItemContainer>
           {result.spoken_languages &&
             result.spoken_languages.length > 0 &&
-            result.spoken_languages.map((language, index) =>
-              index !== 0 ? (
-                <Item>/ {language.name} </Item>
-              ) : (
-                <Item>{language.name} </Item>
-              )
-            )}
+            result.spoken_languages.map(language => (
+              <Language> {language.name} </Language>
+            ))}
 
           <Overview>{result.overview}</Overview>
           <VideoContainer>
@@ -203,6 +180,18 @@ const DetailPresenter = ({ result, loading, error }) =>
                   )
               )}
           </VideoContainer>
+
+          {result.belongs_to_collection && result.belongs_to_collection.id && (
+            <CollectionContainer>
+              <CollectionPoster
+                src={`https://image.tmdb.org/t/p/original${
+                  result.belongs_to_collection.poster_path
+                }`}
+              />
+              <Collection>{result.belongs_to_collection.name} </Collection>
+            </CollectionContainer>
+          )}
+
           <CompanyContainer>
             {result.production_companies &&
               result.production_companies.length > 0 &&
