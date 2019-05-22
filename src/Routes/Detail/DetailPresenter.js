@@ -105,11 +105,11 @@ const CompanyContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 80px);
   grid-gap: 40px;
-  margin-top: 10px;
+  margin-top: 30px;
 `;
 
 const CollectionContainer = styled.div`
-  width: 100%;
+  width: 120px;
   height: 120px;
 `;
 
@@ -183,15 +183,16 @@ const DetailPresenter = ({ result, loading, error }) =>
 
           {result.belongs_to_collection && result.belongs_to_collection.id && (
             <CollectionContainer>
-              <CollectionPoster
-                src={`https://image.tmdb.org/t/p/original${
-                  result.belongs_to_collection.poster_path
-                }`}
-              />
-              <Collection>{result.belongs_to_collection.name} </Collection>
+              <Link to={`/collection/${result.belongs_to_collection.id}`}>
+                <CollectionPoster
+                  src={`https://image.tmdb.org/t/p/original${
+                    result.belongs_to_collection.poster_path
+                  }`}
+                />
+                <Collection>{result.belongs_to_collection.name} </Collection>
+              </Link>
             </CollectionContainer>
           )}
-
           <CompanyContainer>
             {result.production_companies &&
               result.production_companies.length > 0 &&
