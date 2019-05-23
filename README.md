@@ -1,6 +1,8 @@
-## react - For review
+# Preview :
 
-https://gwuiinkim.github.io/study-react
+Try it on [Netlify](https://suspicious-shirley-195817.netlify.com/#/)
+
+## react - For review
 
 ## To Do List..
 
