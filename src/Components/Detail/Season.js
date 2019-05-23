@@ -37,7 +37,7 @@ const Title = styled.h3`
 const Season = ({ result }) => (
   <Container>
     {result.seasons.map(season => (
-      <Link to={`/tv/${season.id}`} key={season.id}>
+      <Link to={`/tv/${season.id}`}>
         <SeasonContainer key={season.id}>
           <Poster
             bgImage={`https://image.tmdb.org/t/p/original${season.poster_path}`}
