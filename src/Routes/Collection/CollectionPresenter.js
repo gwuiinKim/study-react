@@ -24,13 +24,13 @@ const Backdrop = styled.div`
   background-size: cover;
   filter: blur(4px);
   opacity: 0.15;
-  z-index: 0;
+  z-index: -1;
 `;
 
 const Content = styled.div`
   display: flex;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   height: 100%;
 `;
 
@@ -107,7 +107,7 @@ const CollectionPresenter = ({ result, error, loading }) =>
           {result.parts &&
             result.parts.length > 0 &&
             result.parts.map(movie => (
-              <SLink to={`/movie/${movie.id}`}>
+              <SLink to={`/movie/${movie.id}`} key={movie.id}>
                 <Movie>
                   <Poster
                     bgImage={`https://image.tmdb.org/t/p/original${
