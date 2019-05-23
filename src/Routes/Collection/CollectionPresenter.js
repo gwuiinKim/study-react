@@ -29,7 +29,6 @@ const Backdrop = styled.div`
 const Content = styled.div`
   display: flex;
   width: 100%;
-
   z-index: 1;
   height: 100%;
 `;
@@ -43,6 +42,22 @@ const Cover = styled.div`
   border-radius: 5px;
   margin-right: 20px;
 `;
+
+const ListContainer = styled.div`
+  margin-left: 10px;
+  width: 70%;
+  height: 100%;
+`;
+
+const Poster = styled.div`
+  background-image: url(${props => props.bgImage});
+  background-position: center center;
+  background-size: cover;
+  width: 120px;
+  height: 200px;
+`;
+
+const Title = styled.h3``;
 
 const CollectionPresenter = ({ result, error, loading }) =>
   loading ? (
@@ -64,6 +79,20 @@ const CollectionPresenter = ({ result, error, loading }) =>
         <Cover
           bgImage={`https://image.tmdb.org/t/p/original${result.poster_path}`}
         />
+        <ListContainer>
+          {result.parts &&
+            result.parts.length > 0 &&
+            result.parts.map(movie => (
+              <>
+                <Poster
+                  bgImage={`https://image.tmdb.org/t/p/original${
+                    movie.poster_path
+                  }`}
+                />
+                <Title />
+              </>
+            ))}
+        </ListContainer>
       </Content>
     </Container>
   );

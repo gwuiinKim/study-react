@@ -49,7 +49,6 @@ const Cover = styled.div`
 const Data = styled.div`
   margin-left: 20px;
   width: 70%;
-  margin-left: 10px;
 `;
 
 const Title = styled.h3`

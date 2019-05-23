@@ -2,12 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const Container = styled.div`
-  margin-top: 10px;
-  width: 100%;
-  height: 200px;
-`;
-
 const Item = styled.span``;
 const Divider = styled.span`
   margin: 0 10px;
