@@ -23,7 +23,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "yarn run build"
   },
-  "homepage": "https://gwuiinkim.github.io/study-react",
+  "homepage": "https://suspicious-shirley-195817.netlify.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
