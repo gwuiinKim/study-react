@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/study-react/static/js/main.31ae0f59.chunk.js",
+    "main.js.map": "/study-react/static/js/main.31ae0f59.chunk.js.map",
+    "runtime~main.js": "/study-react/static/js/runtime~main.c32cd6e4.js",
+    "runtime~main.js.map": "/study-react/static/js/runtime~main.c32cd6e4.js.map",
+    "static/js/2.a1c1b282.chunk.js": "/study-react/static/js/2.a1c1b282.chunk.js",
+    "static/js/2.a1c1b282.chunk.js.map": "/study-react/static/js/2.a1c1b282.chunk.js.map",
+    "index.html": "/study-react/index.html",
+    "precache-manifest.edd11b87be8a660596c001261c317822.js": "/study-react/precache-manifest.edd11b87be8a660596c001261c317822.js",
+    "service-worker.js": "/study-react/service-worker.js",
+    "static/media/noPoster.png": "/study-react/static/media/noPoster.06ea78e7.png"
+  }
+}
