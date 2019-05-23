@@ -4,13 +4,13 @@ import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "../../Components/Loader";
 import LinesEllipsis from "react-lines-ellipsis";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
   width: 100%;
   padding: 50px;
   z-index: 1;
-  opacity: 1;
 `;
 
 const Backdrop = styled.div`
@@ -46,8 +46,14 @@ const Cover = styled.div`
 
 const ListContainer = styled.div`
   margin-left: 20px;
-  width: 70%;
+  width: 60%;
   height: 100%;
+`;
+
+const SLink = styled(Link)`
+  width: 100%;
+  height: 200px;
+  z-index: 1;
 `;
 
 const Movie = styled.div`
@@ -101,23 +107,25 @@ const CollectionPresenter = ({ result, error, loading }) =>
           {result.parts &&
             result.parts.length > 0 &&
             result.parts.map(movie => (
-              <Movie>
-                <Poster
-                  bgImage={`https://image.tmdb.org/t/p/original${
-                    movie.poster_path
-                  }`}
-                />
-                <Data>
-                  <Title>{movie.title}</Title>
-                  <LinesEllipsis
-                    text={movie.overview}
-                    maxLine="3"
-                    ellipsis="..."
-                    trimRight
-                    basedOn="letters"
+              <SLink to={`/movie/${movie.id}`}>
+                <Movie>
+                  <Poster
+                    bgImage={`https://image.tmdb.org/t/p/original${
+                      movie.poster_path
+                    }`}
                   />
-                </Data>
-              </Movie>
+                  <Data>
+                    <Title>{movie.title}</Title>
+                    <LinesEllipsis
+                      text={movie.overview}
+                      maxLine="3"
+                      ellipsis="..."
+                      trimRight
+                      basedOn="letters"
+                    />
+                  </Data>
+                </Movie>
+              </SLink>
             ))}
         </ListContainer>
       </Content>
