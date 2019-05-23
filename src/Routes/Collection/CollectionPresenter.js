@@ -61,6 +61,9 @@ const Movie = styled.div`
   width: 100%;
   margin-bottom: 20px;
   display: flex;
+  & :hover {
+    opacity: 0.7;
+  }
 `;
 
 const Poster = styled.div`

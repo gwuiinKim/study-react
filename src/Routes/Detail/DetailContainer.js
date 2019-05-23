@@ -12,7 +12,7 @@ export default class extends Component {
       result: null,
       error: null,
       loading: true,
-      isMovie: pathname.includes("/movie/")
+      isMovie: () => pathname.includes("/movie/")
     };
   }
   componentDidMount = async () => {
@@ -29,7 +29,7 @@ export default class extends Component {
     }
     let result = null;
     try {
-      if (isMovie) {
+      if (isMovie()) {
         ({ data: result } = await moviesApi.movieDetail(parsedId));
         // const request = await moviesApi.movieDetail(parsedId);
         // result = request.data;

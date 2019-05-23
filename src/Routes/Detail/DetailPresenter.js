@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
+import { Link } from "react-router-dom";
 import Company from "../../Components/Detail/Company";
 import ItemList from "../../Components/Detail/ItemList";
-import { Link } from "react-router-dom";
+import Season from "../../Components/Detail/Season";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -24,13 +25,13 @@ const Backdrop = styled.div`
   background-size: cover;
   filter: blur(3px);
   opacity: 0.2;
-  z-index: 0;
+  z-index: -1;
 `;
 
+// 인스타 그램에서처럼 다운로드 못하게 하는 것 같은 기능
 const Content = styled.div`
   display: flex;
   width: 100%;
-  position: relative;
 
   z-index: 1;
   height: 100%;
@@ -96,6 +97,10 @@ const VideoUrl = styled.span`
   width: 100%;
   display: block;
   margin-top: 10px;
+  & :hover {
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  }
 `;
 
 const CompanyContainer = styled.div`
@@ -111,6 +116,10 @@ const CollectionContainer = styled.div`
   width: 120px;
   height: 120px;
   margin-top: 15px;
+  & :hover {
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  }
 `;
 
 const Collection = styled.div``;
@@ -154,11 +163,14 @@ const DetailPresenter = ({ result, loading, error }) =>
           <ItemContainer>
             <ItemList result={result} />
           </ItemContainer>
-          {result.spoken_languages &&
-            result.spoken_languages.length > 0 &&
-            result.spoken_languages.map(language => (
-              <Language> {language.name} </Language>
-            ))}
+          {result.spoken_languages && result.spoken_languages.length > 0
+            ? result.spoken_languages.map(language => (
+                <Language> {language.name} </Language>
+              ))
+            : result.languages &&
+              result.languages.map(language => (
+                <Language> {language} </Language>
+              ))}
 
           <Overview>{result.overview}</Overview>
           <VideoContainer>
@@ -193,13 +205,17 @@ const DetailPresenter = ({ result, loading, error }) =>
               </Link>
             </CollectionContainer>
           )}
-          <CompanyContainer>
-            {result.production_companies &&
-              result.production_companies.length > 0 &&
-              result.production_companies.map(company => (
-                <Company logo={company.logo_path} name={company.name} />
-              ))}
-          </CompanyContainer>
+          {result.production_companies &&
+            result.production_companies.length > 0 && (
+              <CompanyContainer>
+                {result.production_companies.map(company => (
+                  <Company logo={company.logo_path} name={company.name} />
+                ))}
+              </CompanyContainer>
+            )}
+          {result.seasons && result.seasons.length > 0 && (
+            <Season result={result} />
+          )}
         </Data>
       </Content>
     </Container>

@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 200px;
 `;
 
-const CompanyName = styled.p`
+const CompanyName = styled.h3`
   font-size: 14px;
   text-align: center;
   opacity: 0.5;
