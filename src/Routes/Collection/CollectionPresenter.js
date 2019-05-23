@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Loader from "../../Components/Loader";
+import LinesEllipsis from "react-lines-ellipsis";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -44,9 +45,16 @@ const Cover = styled.div`
 `;
 
 const ListContainer = styled.div`
-  margin-left: 10px;
+  margin-left: 20px;
   width: 70%;
   height: 100%;
+`;
+
+const Movie = styled.div`
+  height: 200px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
 `;
 
 const Poster = styled.div`
@@ -55,9 +63,19 @@ const Poster = styled.div`
   background-size: cover;
   width: 120px;
   height: 200px;
+  border-radius: 5px;
 `;
 
-const Title = styled.h3``;
+const Data = styled.div`
+  width: 70%;
+  margin-left: 10px;
+  padding: 10px;
+`;
+
+const Title = styled.h3`
+  font-size: 32px;
+  margin-bottom: 20px;
+`;
 
 const CollectionPresenter = ({ result, error, loading }) =>
   loading ? (
@@ -83,14 +101,23 @@ const CollectionPresenter = ({ result, error, loading }) =>
           {result.parts &&
             result.parts.length > 0 &&
             result.parts.map(movie => (
-              <>
+              <Movie>
                 <Poster
                   bgImage={`https://image.tmdb.org/t/p/original${
                     movie.poster_path
                   }`}
                 />
-                <Title />
-              </>
+                <Data>
+                  <Title>{movie.title}</Title>
+                  <LinesEllipsis
+                    text={movie.overview}
+                    maxLine="3"
+                    ellipsis="..."
+                    trimRight
+                    basedOn="letters"
+                  />
+                </Data>
+              </Movie>
             ))}
         </ListContainer>
       </Content>
