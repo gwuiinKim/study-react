@@ -1,5 +1,7 @@
 ## react - For review
 
+https://gwuiinkim.github.io/study-react
+
 ## To Do List..
 
 ### Detail Page
@@ -41,15 +43,22 @@ can change title.
 
   package.json파일
 
-  ```js
-   "scripts": {
-     ...
-   "deploy": "gh-pages -d build",
-    "predeploy": "yarn run build"
-  },
-  "homepage": "https://gwuiinkim.github.io/study-react",
+- netlify
+  마찬가지로 static file.
 
-  ```
+  master로 branch를 설정해주면, master 로 push를 할 때마다 변경사항이
+  반영된다.
+  yarn build가 자동적으로 이뤄져서!
+
+```js
+ "scripts": {
+   ...
+ "deploy": "gh-pages -d build",
+  "predeploy": "yarn run build"
+},
+"homepage": "https://gwuiinkim.github.io/study-react",
+
+```
 
 ## container / presenter
 
