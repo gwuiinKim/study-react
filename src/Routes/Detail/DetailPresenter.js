@@ -110,6 +110,7 @@ const CompanyContainer = styled.div`
 const CollectionContainer = styled.div`
   width: 120px;
   height: 120px;
+  margin-top: 15px;
 `;
 
 const Collection = styled.div``;
