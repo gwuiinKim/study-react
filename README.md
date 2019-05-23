@@ -8,16 +8,16 @@
 - [x] IMDb (internet mobie database button. link)
 - [x] Production_components (logo, name)
 - [x] Spoken languages
-- [ ] Collection ( make route of collection)
+- [x] Collection ( make route of collection)
 
-- [ ] On TV Show -> season
+- [x] On TV Show -> season
 
 ### Screen
 
 - [x] Home
 - [x] TV shows
 - [x] Search
-- [ ] Detail
+- [x] Detail
 
 ### API
 
@@ -33,6 +33,23 @@
 ### react helmet
 
 can change title.
+
+### Deploy
+
+- gh pages
+  yarn add gh-pages
+
+  package.json파일
+
+  ```js
+   "scripts": {
+     ...
+   "deploy": "gh-pages -d build",
+    "predeploy": "yarn run build"
+  },
+  "homepage": "https://gwuiinkim.github.io/study-react",
+
+  ```
 
 ## container / presenter
 
